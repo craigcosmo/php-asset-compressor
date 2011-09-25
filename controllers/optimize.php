@@ -1,13 +1,12 @@
 <?php
 
-class Optimize extends Controller
+class Optimize extends CI_Controller
 {
 	function index()
 	{
-		$this->asset->version();
-		$this->asset->css();
-		$this->asset->js();
-		$this->asset->html();
-		$this->asset->img();
+		$this->asset->compress_css('css/','service/');
+		$this->asset->compress_js('js/','service/');
+		$this->asset->compress_img('img/', 'service/img/sprite.png', 'service/css/css.css');
 	}
+
 }
