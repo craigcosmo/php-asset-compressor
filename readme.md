@@ -1,17 +1,31 @@
-This library is targeted Codeigniter framwork.
+A codeigniter libary to compress HTML, CSS, Javascript and make sprite image
 
-USER GUIDE:
+## Installing
 
-Copy the required files to your project.
+Copy the asset.php, jsmin.php, cssmin.php file and paste it to your library folder
 
-Autoload config asset and library asset
+## Usage
 
-Once done that. Run controller optimize. There you go, your asset is now compressed and optimized and stored in folder "service". the original assets remain intact.
+Load it in your controller
 
-Now to use the new asset in the views, you put this code in your view
+$this->load->library('asset');
 
-<?=$this->asset->css_link('css/','service/css/')?>// if fail to load compressed css, it will load all the orginal css files in css folder
-<?=$this->asset->js_link('js/', 'service/js/')?>// if fail to load compressed js, it will load all the orignal js files in js folder
+to comppress css:
 
+```
+$this->asset->compress_css('my_production_css_folder/','my_distribution_css_folder/');
+```
+
+to compress js
+
+```
+$this->asset->compress_css('my_production_js_folder/','my_distribution_js_folder/');
+```
+
+to compress HTML (which might contain CSS and JS)
+
+```
+$this->asset->compress_html('app/views/','app/my_distribution_views folder/');
+```
 
 
